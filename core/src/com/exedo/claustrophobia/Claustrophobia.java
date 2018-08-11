@@ -10,8 +10,8 @@ public class Claustrophobia extends Game {
 
 	private SpriteBatch batch;
 	private AssetManager assets;
-	public static int V_WIDTH = 1920;
-	public static int V_HEIGHT = 1080;
+	public static int V_WIDTH = 640;
+	public static int V_HEIGHT = 360;
 
 	@Override
 	public void create() {
@@ -23,6 +23,7 @@ public class Claustrophobia extends Game {
 
 	void loadAssets() {
 		assets.load("textures/titlescreen.png", Texture.class);
+		assets.load("spritesheets/player.png", Texture.class);
 		assets.finishLoading();
 	}
 
