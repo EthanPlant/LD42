@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.exedo.claustrophobia.Claustrophobia;
+import com.exedo.claustrophobia.ui.inventory.Inventory;
 
 public class Player extends Sprite {
     public enum DIRECTION {
@@ -19,7 +20,6 @@ public class Player extends Sprite {
         WALKING
     }
 
-
     private Animation<TextureRegion> forwardWalk;
     private Animation<TextureRegion> backwardsWalk;
     private Animation<TextureRegion> rightWalk;
@@ -29,6 +29,8 @@ public class Player extends Sprite {
     private STATE state;
 
     private float elapsedTime;
+
+    private Inventory inventory;
 
     public Player(float x, float y, Claustrophobia game) {
         TextureRegion[][]tmp = TextureRegion.split(game.getAssets().get("spritesheets/player.png", Texture.class),
@@ -75,9 +77,10 @@ public class Player extends Sprite {
         direction = DIRECTION.FORWARD;
         state = STATE.STANDING;
 
+        inventory = new Inventory();
+
         setRegion(forwardWalk.getKeyFrame(0));
-        setPosition(x, y);
-        setBounds(0, 0, 32, 32);
+        setBounds(x, y, 16, 16);
     }
 
     public void setDirection(DIRECTION direction) {
@@ -123,6 +126,10 @@ public class Player extends Sprite {
             }
         }
 
-        setPosition(getX(), getY());
+        //setPosition(getX(), getY());
+    }
+
+    public Inventory getInventory() {
+        return inventory;
     }
 }

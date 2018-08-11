@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="13" height="7" tilewidth="32" tileheight="32" infinite="0" nextobjectid="46">
+ <tileset firstgid="1" source="../tilesets/Room.tsx"/>
+ <layer name="Tile Layer 1" width="13" height="7" opacity="0.9" offsetx="-64" offsety="0">
+  <data encoding="csv">
+0,11,11,11,11,11,1,1,1,1,1,1,1,
+0,11,11,11,11,11,1,1,1,1,1,1,1,
+33,23,11,23,23,11,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1,
+1,1,1,1,1,1,1,1,1,1,1,1,1
+</data>
+ </layer>
+ <layer name="Tile Layer 2" width="13" height="7" offsetx="-64" offsety="0">
+  <data encoding="csv">
+32,0,3758096406,0,0,21,0,2,5,3,4,5,0,
+42,0,0,0,0,21,0,12,0,13,14,0,0,
+0,0,0,0,0,41,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,15,0,0,0,0,0,0,
+0,0,0,0,0,0,0,6,7,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Tile Layer 3" width="13" height="7" offsetx="-64" offsety="0">
+  <data encoding="csv">
+0,0,0,0,0,21,0,0,10,0,0,20,0,
+0,0,0,0,0,31,0,0,0,0,0,0,0,
+0,0,0,0,0,41,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,8,9,0,0,0,0,
+0,0,0,0,0,0,0,18,19,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup name="Walls">
+  <object id="1" x="-96" y="0" width="32" height="320"/>
+  <object id="2" x="-64" y="320" width="416" height="32"/>
+  <object id="3" x="352" y="0" width="32" height="320"/>
+  <object id="4" x="-64" y="-32" width="416" height="32"/>
+  <object id="6" x="-64" y="96" width="48"/>
+  <object id="7" x="48" y="96" width="48"/>
+  <object id="8" x="48" y="96" width="48"/>
+  <object id="9" x="96" y="96" width="32"/>
+  <object id="10" x="128" y="0" height="96"/>
+  <object id="45" x="-63.3333" y="225.333" width="416" height="14"/>
+ </objectgroup>
+ <objectgroup name="Furnature">
+  <object id="14" x="128" y="128" height="32"/>
+  <object id="16" x="160" y="160" width="64" height="32"/>
+  <object id="17" x="192" y="0" width="32" height="32"/>
+  <object id="18" x="160" y="64" width="32"/>
+  <object id="19" x="224" y="64" width="64"/>
+  <object id="20" x="288" y="0" width="32" height="32"/>
+  <object id="26" x="128" y="160">
+   <polyline points="0,0 0,-32 0,0"/>
+  </object>
+  <object id="27" x="128" y="160">
+   <polyline points="0,0 0,-32 0,0"/>
+  </object>
+  <object id="28" x="139" y="160.25">
+   <polyline points="0,0 0,-32 0,0"/>
+  </object>
+  <object id="33" x="95" y="0">
+   <polyline points="0,0 1.25,95"/>
+  </object>
+  <object id="34" x="159.75" y="49.25" width="32.5" height="15"/>
+  <object id="35" x="224.5" y="49.25" width="63.75" height="14.5"/>
+  <object id="36" x="177.5" y="153.75" width="27.75" height="5.5"/>
+  <object id="38" x="137.75" y="127.5" width="2.25" height="34"/>
+  <object id="39" x="95" y="0.25" width="2.25" height="94"/>
+  <object id="40" x="33" y="94.5" width="21.25" height="1.5"/>
+  <object id="41" x="-19" y="93.75" width="19.5" height="3"/>
+  <object id="42" x="-0.25" y="0.25" width="31.5" height="31"/>
+  <object id="43" x="-62" y="0.75" width="29.5" height="63.5"/>
+ </objectgroup>
+</map>

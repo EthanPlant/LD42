@@ -27,6 +27,7 @@ public class Claustrophobia extends Game {
 		assets.load("spritesheets/player.png", Texture.class);
 		assets.load("skins/uiskin.json", Skin.class);
 		assets.load("spritesheets/items.atlas", TextureAtlas.class);
+		assets.load("textures/testobj.png", Texture.class);
 		assets.finishLoading();
 	}
 
