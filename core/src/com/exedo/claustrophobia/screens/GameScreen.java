@@ -5,16 +5,22 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.utils.PooledLinkedList;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.exedo.claustrophobia.Claustrophobia;
-import com.exedo.claustrophobia.entities.Player;
+import com.exedo.claustrophobia.sprites.Player;
+import com.exedo.claustrophobia.sprites.items.TestItem;
+import com.exedo.claustrophobia.ui.inventory.Inventory;
+import com.exedo.claustrophobia.ui.inventory.InventoryActor;
+import com.exedo.claustrophobia.ui.inventory.Slot;
 
 public class GameScreen implements Screen {
-
     private Claustrophobia game;
 
     private OrthographicCamera cam;
@@ -25,6 +31,12 @@ public class GameScreen implements Screen {
     private OrthogonalTiledMapRenderer renderer;
 
     private Player player;
+
+    private static Stage stage;
+    private InventoryActor inventoryActor;
+    private Inventory inventory;
+
+    private TestItem testItem;
 
     public GameScreen(Claustrophobia game) {
         this.game = game;
@@ -38,6 +50,18 @@ public class GameScreen implements Screen {
         renderer = new OrthogonalTiledMapRenderer(map);
 
         player = new Player(port.getWorldWidth() / 2, port.getWorldHeight() / 2, game);
+
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+
+        Skin skin = game.getAssets().get("skins/uiskin.json", Skin.class);
+        DragAndDrop dragAndDrop = new DragAndDrop();
+        inventory = new Inventory();
+        inventoryActor = new InventoryActor(inventory, dragAndDrop, skin);
+        stage.addActor(inventoryActor);
+
+        testItem = new TestItem(game);
+        inventory.store(testItem, 25);
     }
 
     @Override
@@ -65,6 +89,10 @@ public class GameScreen implements Screen {
         } else {
             player.setState(Player.STATE.STANDING);
         }
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.E)) {
+            inventoryActor.setVisible(!inventoryActor.isVisible());
+        }
     }
 
     public void update(float delta) {
@@ -89,11 +117,17 @@ public class GameScreen implements Screen {
         game.getBatch().begin();
         player.draw(game.getBatch());
         game.getBatch().end();
+
+        stage.getBatch().setProjectionMatrix(cam.combined);
+
+        stage.act(delta);
+        stage.draw();
     }
 
     @Override
     public void resize(int width, int height) {
         port.update(width, height);
+        stage.getViewport().update(width, height);
     }
 
     @Override

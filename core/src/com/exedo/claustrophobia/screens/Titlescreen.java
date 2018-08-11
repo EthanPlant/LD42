@@ -10,7 +10,6 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.exedo.claustrophobia.Claustrophobia;
 
 public class Titlescreen implements Screen {
-
     private Claustrophobia game;
 
     private OrthographicCamera cam;

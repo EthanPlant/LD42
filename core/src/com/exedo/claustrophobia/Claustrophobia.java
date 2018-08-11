@@ -4,10 +4,11 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.exedo.claustrophobia.screens.Titlescreen;
 
 public class Claustrophobia extends Game {
-
 	private SpriteBatch batch;
 	private AssetManager assets;
 	public static int V_WIDTH = 640;
@@ -24,6 +25,8 @@ public class Claustrophobia extends Game {
 	void loadAssets() {
 		assets.load("textures/titlescreen.png", Texture.class);
 		assets.load("spritesheets/player.png", Texture.class);
+		assets.load("skins/uiskin.json", Skin.class);
+		assets.load("spritesheets/items.atlas", TextureAtlas.class);
 		assets.finishLoading();
 	}
 

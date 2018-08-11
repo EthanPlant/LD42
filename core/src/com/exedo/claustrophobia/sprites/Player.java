@@ -1,8 +1,7 @@
-package com.exedo.claustrophobia.entities;
+package com.exedo.claustrophobia.sprites;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.DistanceFieldFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.exedo.claustrophobia.Claustrophobia;
